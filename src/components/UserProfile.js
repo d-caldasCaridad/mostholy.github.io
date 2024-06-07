@@ -7,25 +7,25 @@ const { Title, Paragraph } = Typography;
 
 const UserProfile = () => {
   const [profileData, setProfileData] = useState({
-    name: "Diego",
+    name: "Your name",
     bio: "lorem ipsum",
     website: "https://example.com",
-    content: "",
+    content: "bla, bla, bla...",
   });
 
   const [isEditing, setIsEditing] = useState(false);
   const [isCreatingContent, setIsCreatingContent] = useState(false);
 
   const handleProfileUpdate = useCallback((data) => {
-      setProfileData((prevData) => ({ ...prevData, ...data }));
-    }, [setProfileData]);
+    setProfileData((prevData) => ({ ...prevData, ...data }));
+  }, [setProfileData]);
 
   const handleEditProfile = useCallback(() => {
     setIsEditing(true);
   }, [setIsEditing]);
 
   const handleCreateContent = useCallback((data) => {
-    setIsCreatingContent(() => ({ ...data}));
+    setIsCreatingContent(() => ({ ...data }));
   }, [setIsCreatingContent]);
 
   const handleCloseModal = useCallback(() => {
@@ -56,7 +56,7 @@ const UserProfile = () => {
         onClose={() => handleCloseModal(false)}
         user={profileData}
         onSubmit={handleCreateContent}
-        />
+      />
     </div>
   );
 };
